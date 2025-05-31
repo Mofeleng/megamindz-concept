@@ -1,0 +1,56 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Journal {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?  
+  type        String   // e.g., "mindfulness", "daily", "gratitude"
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Meditation {
+  id         Int      @id @default(autoincrement())
+  title      String
+  audioUrl   String   // URL for the audio source
+  transcript String?  // Optional transcript text
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Habit {
+  id          Int          @id @default(autoincrement())
+  title       String
+  description String?
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  logs        HabitLog[]
+}
+
+model HabitLog {
+  id        Int      @id @default(autoincrement())
+  habit     Habit    @relation(fields: [habitId], references: [id])
+  habitId   Int
+  date      DateTime // The date this habit was done
+  done      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@unique([habitId, date]) // Ensure one log per habit per date
+}
+
