@@ -1,6 +1,6 @@
 const MegaHabits = () => {
     return ( 
-        <h3>MegaHabits</h3>
+        <h3>Mega Habits</h3>
      );
 }
  
