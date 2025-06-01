@@ -1,7 +1,5 @@
 import AddNewJournalModal from "@/components/new-journal-modal";
 import prisma from "@/lib/prisma";
-import { CalendarIcon, NotebookTextIcon } from "lucide-react";
-import { format } from "date-fns";
 import JournalItem from "@/components/journal-item";
 
 const MegaHabits = async () => {

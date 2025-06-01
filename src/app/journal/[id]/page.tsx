@@ -1,9 +1,6 @@
 import JournalEntryItem from "@/components/journal-entry-item";
 import AddNewJournalEntryModal from "@/components/new-journal-entry-modal";
-import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
-import { format } from "date-fns";
-import { BookOpenIcon } from "lucide-react";
 import { redirect } from "next/navigation";
 
 const JournalPage = async ({ params }: { params: Promise<{id: string}> }) => {

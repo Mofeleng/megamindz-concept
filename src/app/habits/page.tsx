@@ -1,8 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/prisma";
-import { PlusIcon, CheckIcon } from "lucide-react";
-import Link from "next/link";
 import HabitForm from "@/components/habit-form";
 import HabitItem from "@/components/habit-item";
 
