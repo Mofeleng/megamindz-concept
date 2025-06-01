@@ -1,4 +1,4 @@
-export function returnFetchOptions<T extends Record<string, any>>(data: T): RequestInit {
+export function returnFetchOptions<T extends object>(data: T): RequestInit {
   return {
     method: 'POST',
     headers: {
