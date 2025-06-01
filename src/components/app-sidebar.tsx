@@ -8,25 +8,21 @@ import Link from "next/link";
 const apps: {
     title: string,
     url: string,
-    counter: number,
     icon: LucideIcon
 }[] = [
     {
         title: "Mega Journals",
         url: "/",
-        counter: 2,
         icon: BookOpenIcon
     },
     {
         title: "Mega Mindfulness",
         url: "/mindfulness",
-        counter: 5,
         icon: WavesIcon
     },
     {
         title: "Mega Habits",
         url: "/habits",
-        counter: 1,
         icon: CalendarHeart
     }
 ]
@@ -47,7 +43,7 @@ const AppSidebar = () => {
                 <SidebarGroupLabel>Applications</SidebarGroupLabel>
                 <SidebarGroupContent>
                     <SidebarMenu>
-                        { apps.map(({ title, url, counter, icon:Icon }) => (
+                        { apps.map(({ title, url, icon:Icon }) => (
                             <SidebarMenuItem key={title}>
                                 <SidebarMenuButton asChild isActive={
                                     url === "/" 
@@ -59,7 +55,6 @@ const AppSidebar = () => {
                                         <span> { title }</span>
                                     </Link>
                                 </SidebarMenuButton>
-                                <SidebarMenuBadge>{ counter }</SidebarMenuBadge>
                             </SidebarMenuItem>
                         ))}
                     </SidebarMenu>
