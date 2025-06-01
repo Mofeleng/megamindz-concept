@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import AppSidebar from "@/components/app-sidebar";
@@ -39,6 +40,7 @@ export default function RootLayout({
           </header>
           <div className="container mx-auto px-8 py-4">
             { children }
+            <Toaster />
           </div>
         </main>
        </SidebarProvider>
