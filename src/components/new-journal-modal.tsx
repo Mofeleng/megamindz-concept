@@ -74,6 +74,7 @@ const AddNewJournalModal = () => {
       setOpen(false);        // close dialog
       router.refresh();      // refresh data
     } catch (error) {
+        console.log(error)
       setHasError(true);
     } finally {
       setIsSubmitting(false);

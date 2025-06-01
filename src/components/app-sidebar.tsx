@@ -1,6 +1,6 @@
 "use client";
 import { BookOpenIcon, BrainIcon, CalendarHeart, LucideIcon, WavesIcon } from "lucide-react";
-import { Sidebar, SidebarHeader, SidebarContent, SidebarGroup, SidebarFooter, SidebarGroupLabel, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarMenuBadge } from "./ui/sidebar";
+import { Sidebar, SidebarHeader, SidebarContent, SidebarGroup, SidebarFooter, SidebarGroupLabel, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from "./ui/sidebar";
 import { usePathname } from "next/navigation";
 
 import Link from "next/link";

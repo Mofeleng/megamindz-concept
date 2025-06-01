@@ -66,6 +66,7 @@ const AddNewMeditationModal = () => {
       router.refresh();
       setOpen(false);
     } catch (error) {
+      console.log(error)
       setErrorMessage("Something went wrong. Tap to try again.");
     } finally {
       setLoading(false);

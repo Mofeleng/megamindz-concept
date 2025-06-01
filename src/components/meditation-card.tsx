@@ -9,7 +9,7 @@ interface MeditationCardProps {
     audio_url: string;
 }
 
-const MeditationCard = ({ id, title, audio_url:audioUrl }: MeditationCardProps) => {
+const MeditationCard = ({ title, audio_url:audioUrl }: MeditationCardProps) => {
      const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
 

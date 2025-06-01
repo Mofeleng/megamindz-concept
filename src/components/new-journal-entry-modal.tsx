@@ -50,7 +50,7 @@ const AddNewJournalEntryModal = ({ journal_id }: { journal_id: number }) => {
                 setErrorMessage(errorMsg.error);
             };
 
-            const res = await req.json();
+            await req.json();
             setIsSubmitting(false);
             setIsSuccessful(true);
             router.refresh();
