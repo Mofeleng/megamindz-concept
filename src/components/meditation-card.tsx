@@ -23,19 +23,20 @@ const MeditationCard = ({ id, title, audio_url:audioUrl }: MeditationCardProps) 
         setIsPlaying(!isPlaying);
     }
     return ( 
-        <div className="bg-white shadow-md rounded-2xl p-4 w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-2">{title}</h2>
-        <div className="flex items-center justify-between">
-            <button
-            onClick={togglePlayback}
-            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full flex items-center space-x-2"
-            >
-            {isPlaying ? <PauseIcon size={20} /> : <PlayIcon size={20} />}
-            <span>{isPlaying ? 'Pause' : 'Play'}</span>
-            </button>
-        </div>
-        <audio ref={audioRef} src={audioUrl} onEnded={() => setIsPlaying(false)} />
-        </div>
+        <div className="bg-white hover:shadow-lg transition-shadow duration-200 border border-dashed border-gray-300 rounded-2xl p-6 w-full max-w-md flex flex-col items-center justify-center">
+  <div className="bg-blue-100 text-blue-700 rounded-full p-3 mb-4">
+    {isPlaying ? <PauseIcon size={28} /> : <PlayIcon size={28} />}
+  </div>
+  <h2 className="text-lg font-semibold text-gray-800 mb-2 text-center">{title}</h2>
+  <button
+    onClick={togglePlayback}
+    className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-medium"
+  >
+    {isPlaying ? 'Pause' : 'Play'}
+  </button>
+  <audio ref={audioRef} src={audioUrl} onEnded={() => setIsPlaying(false)} />
+</div>
+
      );
 }
  

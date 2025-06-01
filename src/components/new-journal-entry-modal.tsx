@@ -73,15 +73,18 @@ const AddNewJournalEntryModal = ({ journal_id }: { journal_id: number }) => {
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Card
-                    className="bg-gradient-to-br from-yellow-100 via-orange-100 to-yellow-200 border-dashed border-2 border-orange-300 hover:border-orange-400 transition-all duration-200 shadow-sm hover:shadow-md rounded-2xl min-h-[130px] flex items-center justify-center cursor-pointer"
-                >
-                    <CardContent className="flex flex-col items-center justify-center gap-2 p-6">
-                        <div className="bg-orange-400 text-white p-3 rounded-full">
-                        <PlusIcon className="w-6 h-6" />
+                    className="bg-white hover:shadow-lg transition-shadow duration-200 border border-dashed border-gray-300 rounded-2xl p-6 w-full max-w-md flex flex-col items-center justify-center cursor-pointer"
+                    >
+                    <CardContent className="flex flex-col items-center justify-center">
+                        <div className="bg-green-100 text-green-700 rounded-full p-3 mb-4">
+                        <PlusIcon className="w-7 h-7" />
                         </div>
-                        <p className="text-sm font-medium text-orange-800">Add New Entry</p>
+                        <h3 className="text-lg font-semibold text-gray-800">Add New Entry</h3>
+                        <p className="text-sm text-gray-500 mt-1 text-center">
+                        Click to create a new entry
+                        </p>
                     </CardContent>
-                </Card>
+                    </Card>
             </DialogTrigger>
             <DialogContent className="max-w-3xl">
                 { isSuccessful === null && (

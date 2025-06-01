@@ -20,21 +20,24 @@ const JournalItem = ({ id, title, description, createdAt }:JournalItemProps) => 
     return ( 
          <div
             key={id}
-            className="bg-white shadow-sm hover:shadow-md transition-shadow rounded-sm p-4 flex flex-col gap-2 border border-neutral-200 cursor-pointer hover:bg-neutral-50"
             onClick={handleOpenJournal}
+            className="bg-white hover:shadow-lg transition-shadow duration-200 border border-dashed border-gray-300 rounded-2xl p-6 w-full max-w-md flex flex-col justify-between cursor-pointer"
           >
-          <div className="flex justify-between items-center">
-            <h3 className="text-lg font-semibold line-clamp-1">{title}</h3>
-            <NotebookTextIcon className="size-5 text-orange-600" />
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-lg font-semibold text-gray-800 line-clamp-1">{title}</h3>
+              <NotebookTextIcon className="text-orange-600 size-6" />
+            </div>
+
+            <p className="text-sm text-gray-600 line-clamp-2 mb-4">
+              {description || "No description"}
+            </p>
+
+            <div className="flex items-center text-xs text-gray-400 gap-1 mt-auto">
+              <CalendarIcon className="size-4" />
+              <span>{format(new Date(createdAt), "PPP")}</span>
+            </div>
           </div>
-          <p className="text-sm text-neutral-600 line-clamp-2">
-            {description || "No description"}
-          </p>
-          <div className="mt-auto flex items-center text-xs text-neutral-400 gap-1">
-            <CalendarIcon className="size-3" />
-            <span>{format(new Date(createdAt), "PPP")}</span>
-          </div>
-        </div>
+
      );
 }
  
