@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import MeditationCard from "@/components/meditation-card";
 import AddNewMeditationModal from "@/components/new-meditation-modal";
 import prisma from "@/lib/prisma";

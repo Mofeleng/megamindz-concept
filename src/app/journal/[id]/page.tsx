@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import JournalEntryItem from "@/components/journal-entry-item";
 import AddNewJournalEntryModal from "@/components/new-journal-entry-modal";
 import prisma from "@/lib/prisma";

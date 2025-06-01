@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import prisma from "@/lib/prisma";
 import HabitForm from "@/components/habit-form";
 import HabitItem from "@/components/habit-item";

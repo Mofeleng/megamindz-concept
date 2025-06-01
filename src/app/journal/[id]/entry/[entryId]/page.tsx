@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import JournalEditor from "@/components/journal-editor";
 import prisma from "@/lib/prisma";
 import { redirect, notFound } from "next/navigation";
