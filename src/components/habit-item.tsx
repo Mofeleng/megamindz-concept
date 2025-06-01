@@ -10,9 +10,9 @@ interface HabitItemProps {
   title: string;
   logs: {
     id: number;
-    createdAt: string;
+    createdAt: Date;
+    date: Date;
     habitId: number;
-    date: string;
     done: boolean;
   }[];
   onSuccess?: () => void;  // callback to close form or refresh route
