@@ -1,0 +1,40 @@
+import JournalEntryItem from "@/components/journal-entry-item";
+import AddNewJournalEntryModal from "@/components/new-journal-entry-modal";
+import { Card, CardContent } from "@/components/ui/card";
+import prisma from "@/lib/prisma";
+import { format } from "date-fns";
+import { BookOpenIcon } from "lucide-react";
+import { redirect } from "next/navigation";
+
+const JournalPage = async ({ params }: { params: Promise<{id: string}> }) => {
+    const { id } = await params;
+
+    if (!params) redirect('/');
+    const intId = parseInt(id);
+    if (isNaN(intId)) redirect('/');
+
+    const journalEntries = await prisma.journalEntry.findMany({
+        where: {
+            journalId: intId
+        }
+    });
+
+  return (
+    <div>
+        <h2 className="text-2xl font-semi-bold"> Your journal Entries </h2>
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-2">
+            { journalEntries.map(({ id, title, createdAt }) => (
+                <JournalEntryItem
+                    key={id}
+                    id={id}
+                    title={title}
+                    createdAt={createdAt}
+                />
+            ))}
+             <AddNewJournalEntryModal journal_id={intId}/>
+        </div>
+    </div>
+  );
+};
+
+export default JournalPage;

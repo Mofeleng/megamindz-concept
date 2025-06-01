@@ -49,7 +49,11 @@ const AppSidebar = () => {
                     <SidebarMenu>
                         { apps.map(({ title, url, counter, icon:Icon }) => (
                             <SidebarMenuItem key={title}>
-                                <SidebarMenuButton asChild isActive={pathname === url ? true : false }>
+                                <SidebarMenuButton asChild isActive={
+                                    url === "/" 
+                                    ? pathname === "/" || pathname.startsWith("/journal/") 
+                                    : pathname === url
+                                }>
                                     <Link href={url}>
                                         <Icon />
                                         <span> { title }</span>

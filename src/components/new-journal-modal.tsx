@@ -2,7 +2,7 @@
 
 import { PlusIcon } from "lucide-react";
 import { Dialog, DialogHeader, DialogTitle, DialogTrigger, DialogContent, DialogDescription } from "@/components/ui/dialog";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "./ui/form";
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -79,6 +79,7 @@ const AddNewJournalModal = () => {
                                 <FormDescription>
                                     What would you like this journal to be called
                                 </FormDescription>
+                                <FormMessage />
                             </FormItem>
                         )}
                     />
