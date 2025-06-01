@@ -27,6 +27,7 @@ const JournalPage = async ({ params }: { params: Promise<{id: string}> }) => {
                 <JournalEntryItem
                     key={id}
                     id={id}
+                    journal_id={intId}
                     title={title}
                     createdAt={createdAt}
                 />
