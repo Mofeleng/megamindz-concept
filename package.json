@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build && prisma generate",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma": "prisma generate",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
