@@ -31,6 +31,7 @@ import {
 } from "./ui/select";
 import { Button } from "./ui/button";
 import { returnFetchOptions } from "@/lib/fetch-options";
+import { useRouter } from "next/navigation";
 
 const newMeditationSchema = z.object({
   title: z.string().min(1, "Name this meditation session"),
@@ -41,6 +42,8 @@ const AddNewMeditationModal = () => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof newMeditationSchema>>({
     resolver: zodResolver(newMeditationSchema),
@@ -60,6 +63,7 @@ const AddNewMeditationModal = () => {
       
       // Success
       form.reset();
+      router.refresh();
       setOpen(false);
     } catch (error) {
       setErrorMessage("Something went wrong. Tap to try again.");
