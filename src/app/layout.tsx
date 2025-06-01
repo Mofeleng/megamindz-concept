@@ -37,7 +37,7 @@ export default function RootLayout({
           <header className="w-full px-8 py-3 border-b border-gray-200 flex items-center justify-between">
             <SidebarTrigger />
           </header>
-          <div className="container mx-auto px-8 py-2">
+          <div className="container mx-auto px-8 py-4">
             { children }
           </div>
         </main>

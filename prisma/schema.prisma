@@ -19,9 +19,22 @@ model Journal {
   title       String
   description String?  
   type        String   // e.g., "mindfulness", "daily", "gratitude"
-  content     String
+  entries     JournalEntry[]
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  @@map("journal")
+}
+
+model JournalEntry {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  journal   Journal  @relation(fields: [journalId], references: [id], onDelete: Cascade)
+  journalId Int
+
+  @@map("journalEntry")
 }
 
 model Meditation {
@@ -31,6 +44,7 @@ model Meditation {
   transcript String?  // Optional transcript text
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
+  @@map("meditation")
 }
 
 model Habit {
@@ -41,6 +55,7 @@ model Habit {
   updatedAt   DateTime     @updatedAt
 
   logs        HabitLog[]
+  @@map("habit")
 }
 
 model HabitLog {
@@ -52,5 +67,6 @@ model HabitLog {
   createdAt DateTime @default(now())
 
   @@unique([habitId, date]) // Ensure one log per habit per date
+  @@map("habitLog")
 }
 
